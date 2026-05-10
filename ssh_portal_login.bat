@@ -43,16 +43,16 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command ^
   "$profileRoot='%PROFILE_ROOT%'; $hostName='%SOCKS_HOST%'; $port=%SOCKS_PORT%; $url='%LOGIN_URL%';" ^
   "$pf=$env:ProgramFiles; $pfx=${env:ProgramFiles(x86)}; $la=$env:LocalAppData;" ^
   "$browsers=@();" ^
+  "if($pf){ $browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Path=Join-Path $pf 'Google\Chrome\Application\chrome.exe'} }" ^
+  "if($pfx){ $browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Path=Join-Path $pfx 'Google\Chrome\Application\chrome.exe'} }" ^
+  "if($la){ $browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Path=Join-Path $la 'Google\Chrome\Application\chrome.exe'} }" ^
+  "$browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Command='chrome.exe'};" ^
   "if($pf){ $browsers += @{Name='Microsoft Edge'; Kind='chromium'; Key='edge'; Path=Join-Path $pf 'Microsoft\Edge\Application\msedge.exe'} }" ^
   "if($pfx){ $browsers += @{Name='Microsoft Edge'; Kind='chromium'; Key='edge'; Path=Join-Path $pfx 'Microsoft\Edge\Application\msedge.exe'} }" ^
   "$browsers += @{Name='Microsoft Edge'; Kind='chromium'; Key='edge'; Command='msedge.exe'};" ^
   "if($pf){ $browsers += @{Name='Firefox'; Kind='firefox'; Key='firefox'; Path=Join-Path $pf 'Mozilla Firefox\firefox.exe'} }" ^
   "if($pfx){ $browsers += @{Name='Firefox'; Kind='firefox'; Key='firefox'; Path=Join-Path $pfx 'Mozilla Firefox\firefox.exe'} }" ^
   "$browsers += @{Name='Firefox'; Kind='firefox'; Key='firefox'; Command='firefox.exe'};" ^
-  "if($pf){ $browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Path=Join-Path $pf 'Google\Chrome\Application\chrome.exe'} }" ^
-  "if($pfx){ $browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Path=Join-Path $pfx 'Google\Chrome\Application\chrome.exe'} }" ^
-  "if($la){ $browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Path=Join-Path $la 'Google\Chrome\Application\chrome.exe'} }" ^
-  "$browsers += @{Name='Google Chrome'; Kind='chromium'; Key='chrome'; Command='chrome.exe'};" ^
   "$browser=$null; foreach($b in $browsers){ if($b.Path -and (Test-Path -LiteralPath $b.Path)){ $browser=$b; $browser.Exe=$b.Path; break }; if($b.Command){ $cmd=Get-Command $b.Command -ErrorAction SilentlyContinue; if($cmd){ $browser=$b; $browser.Exe=$cmd.Source; break } } }" ^
   "if(-not $browser){ Write-Host 'Error: Edge, Firefox, or Chrome was not found.'; exit 1 }" ^
   "$profileDir = $profileRoot + '-' + $browser.Key;" ^

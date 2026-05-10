@@ -19,7 +19,7 @@
 
 浏览器搜索顺序：
     修改 BROWSER_SEARCH_ORDER 即可调整优先级，例如：
-    ["edge", "firefox", "chrome"]
+    ["chrome", "edge", "firefox"]
 """
 
 import argparse

@@ -71,7 +71,7 @@ The Python script uses:
 BROWSER_SEARCH_ORDER = ["chrome", "edge", "firefox"]
 ```
 
-The Windows scripts search Edge, Firefox, then Chrome.
+The Windows scripts search Chrome, Edge, then Firefox.
 
 ## License
 

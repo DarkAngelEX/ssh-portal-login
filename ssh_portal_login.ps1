@@ -12,7 +12,7 @@ param(
 $SocksHost = "127.0.0.1"
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 $ProfileRoot = Join-Path $ScriptDir ".campus-login-profile"
-$BrowserSearchOrder = @("edge", "firefox", "chrome")
+$BrowserSearchOrder = @("chrome", "edge", "firefox")
 
 function Stop-LoginProxy {
     param([System.Diagnostics.Process] $Process)
