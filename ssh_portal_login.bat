@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-set "LOGIN_URL=https://10.248.98.2"
+set "LOGIN_URL=http://10.248.98.2"
 set "SOCKS_HOST=127.0.0.1"
 set "SOCKS_PORT=1080"
 set "PROFILE_ROOT=%~dp0.campus-login-profile"

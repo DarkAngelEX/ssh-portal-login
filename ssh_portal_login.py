@@ -34,7 +34,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-LOGIN_URL = "https://10.248.98.2"
+LOGIN_URL = "http://10.248.98.2"
 SOCKS_PORT = 1080
 PROFILE_NAME = ".campus-login-profile"
 BROWSER_SEARCH_ORDER = ["chrome", "edge", "firefox"]

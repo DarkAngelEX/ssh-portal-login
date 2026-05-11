@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory = $true, Position = 0)]
     [string] $SshTarget,
 
-    [string] $Url = "https://10.248.98.2",
+    [string] $Url = "http://10.248.98.2",
 
     [int] $Port = 1080,
 
